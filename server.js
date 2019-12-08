@@ -1,3 +1,7 @@
+// ********************************
+// Set up connection to server & db
+// ********************************
+
 const express = require("express");
 const connection = require("./config/connection.js");
 const PORT = process.env.PORT || 8080;
@@ -17,3 +21,85 @@ app.listen(PORT, function() {
   // Log (server-side) when our server has started
   console.log("Server listening on: http://localhost:" + PORT);
 });
+
+// ********************************
+// Variables to Hold Inquirer Questions
+// ********************************
+
+const startQuestion = [    
+{
+    type: "list",
+    name: "action",
+    message: "Welcome to the HRIS. What do you want to do",
+    choices: ["Add departments, roles, employees", "View departments, roles, employees", "Update employee role"]
+}
+];
+const addQuestions = [
+{
+    type: "list",
+    name: "addType",
+    message: "What do you want to add",
+    choices: ["department", "role", "employee"]
+    },
+]
+
+const changeQuestions = [
+{
+    type: "list",
+    name: "addType",
+    message: "What do you want to change",
+    choices: ["department", "role", "employee"]
+    },
+]
+const addEmpQ = [
+{
+    type: "input",
+    name: "firstName",
+    message: "Enter employee first name"    
+    },
+    {
+    type: "input",
+    name: "lastName",
+    message: "Enter employee first name"
+    },
+    {
+    type: 'list',
+    name: 'employeeRole',
+    message: "What is this employee's role?",
+    // Need to add list of roles from the eeDB into choices below
+    choices: []
+    },
+    {
+    type: 'list',
+    name: 'employeeManager',
+    message: "Who is this employee's manager?"
+    // Need to add list of names of managers
+    choices: []
+    }      
+]
+
+const addRoleQ = [
+{
+    type: "input",
+    name: "roleTitle",
+    message: "Enter the name of the new role:"    
+    },
+    {
+    type: "list",
+    name: "roleDept",
+    message: "Enter employee first name"
+    },
+    {
+    type: 'list',
+    name: 'employeeRole',
+    // Need to add list of roles from the eeDB into choices below
+    choices: []
+    },
+    {
+    type: 'list',
+    name: 'employeeManager',
+    // Need to add list of names of managers
+    choices: []
+    }      
+]
+
