@@ -14,10 +14,9 @@ CREATE TABLE department (
 CREATE TABLE ee_role (
   id INT AUTO_INCREMENT NOT NULL,
   title VARCHAR(30) NULL,
-  department_id INT NULL,
-  salary DECIMAL(10,4) NULL,
-  dept_id int NOT NULL,
-  FOREIGN KEY (dept_id) REFERENCES department (id),
+  department_id INT NOT NULL,
+  salary DECIMAL(10,4) NULL,  
+  FOREIGN KEY (department_id) REFERENCES department (id),
   PRIMARY KEY (id)
 );
 
@@ -27,7 +26,6 @@ CREATE TABLE employee (
   last_name VARCHAR(30) NULL,
   role_id INT NULL,
   manager_id INT NULL,
-  title_id INT NULL,
-  CONSTRAINT for_id FOREIGN KEY(title_id) REFERENCES ee_role (id),  
+  CONSTRAINT for_id FOREIGN KEY(role_id) REFERENCES ee_role (id),  
   PRIMARY KEY (id)
 );
