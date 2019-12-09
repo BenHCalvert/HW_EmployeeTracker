@@ -130,3 +130,22 @@ const updateRoleQ = [
     }
 ]
 
+// ********************************
+// Functions to prompt questions
+// ********************************
+
+
+function questions() {
+    inquirer.prompt(startQuestion).then(function(res) {
+        if (res.action === "Add departments, roles or employees") {
+            inquirer.prompt(addQuestions)
+        };
+        else if (res.action === "View departments, roles or employees") {
+            inquirer.prompt(viewQ)
+        };
+        else if (res.action === "Update employee role") {
+            inquirer.prompt(updateRoleQ)
+        };
+    });
+};
+
