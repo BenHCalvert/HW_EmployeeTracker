@@ -31,7 +31,7 @@ const startQuestion = [
     type: "list",
     name: "action",
     message: "Welcome to the HRIS. What do you want to do",
-    choices: ["Add departments, roles, employees", "View departments, roles, employees", "Update employee role"]
+    choices: ["Add departments, roles or employees", "View departments, roles or employees", "Update employee role"]
 }
 ];
 const addQuestions = [
@@ -41,7 +41,7 @@ const addQuestions = [
     message: "What do you want to add",
     choices: ["department", "role", "employee"]
     },
-]
+];
 
 const changeQuestions = [
 {
@@ -50,7 +50,7 @@ const changeQuestions = [
     message: "What do you want to change",
     choices: ["department", "role", "employee"]
     },
-]
+];
 const addEmpQ = [
 {
     type: "input",
@@ -76,7 +76,7 @@ const addEmpQ = [
     // Need to add list of names of managers
     choices: []
     }      
-]
+];
 
 const addRoleQ = [
 {
@@ -101,5 +101,39 @@ const addRoleQ = [
     // Need to add list of names of managers
     choices: []
     }      
+];
+
+const addDeptQ = [
+    {
+    type: "input",
+    name: "deptTitle",
+    message: "Enter the name of the new department:"    
+    }           
+];
+
+const viewQ = [
+    {
+    type: 'list',
+    name: 'viewTableSelector',
+    message: 'Do you want to view departments, roles or employees?'
+    // List of all departments
+    choices: ['departments', 'roles', 'employees']
+    }
+];
+
+const updateRoleQ = [
+    {
+    type: 'list',
+    name: 'updateRole',
+    // List of all Employees
+    choices: []
+    },
+    {
+    type: 'list',
+    name: 'newRole',
+    message: 'select the employees new role',
+    // list of all roles
+    choices: []
+
 ]
 
