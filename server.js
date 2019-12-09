@@ -23,6 +23,19 @@ app.listen(PORT, function() {
 });
 
 // ********************************
+// Variables to hold lists to pipe into questions
+// ********************************
+
+let allRoles = "SELECT title FROM ee_role";
+let managerID = "SELECT manager_id FROM employee";
+let allEmployees = "SELECT first_name, last_name FROM employee";
+
+
+
+
+
+
+// ********************************
 // Variables to Hold Inquirer Questions
 // ********************************
 
@@ -66,15 +79,13 @@ const addEmpQ = [
     type: 'list',
     name: 'employeeRole',
     message: "What is this employee's role?",
-    // Need to add list of roles from the eeDB into choices below
-    choices: []
+    choices: allRoles
     },
     {
     type: 'list',
     name: 'employeeManager',
-    message: "Who is this employee's manager?"
-    // Need to add list of names of managers
-    choices: []
+    message: "Who is this employee's manager?",
+    choices: managerID
     }      
 ];
 
@@ -83,24 +94,7 @@ const addRoleQ = [
     type: "input",
     name: "roleTitle",
     message: "Enter the name of the new role:"    
-    },
-    {
-    type: "list",
-    name: "roleDept",
-    message: "Enter employee first name"
-    },
-    {
-    type: 'list',
-    name: 'employeeRole',
-    // Need to add list of roles from the eeDB into choices below
-    choices: []
-    },
-    {
-    type: 'list',
-    name: 'employeeManager',
-    // Need to add list of names of managers
-    choices: []
-    }      
+}     
 ];
 
 const addDeptQ = [
@@ -115,8 +109,7 @@ const viewQ = [
     {
     type: 'list',
     name: 'viewTableSelector',
-    message: 'Do you want to view departments, roles or employees?'
-    // List of all departments
+    message: 'Do you want to view departments, roles or employees?',
     choices: ['departments', 'roles', 'employees']
     }
 ];
@@ -125,15 +118,15 @@ const updateRoleQ = [
     {
     type: 'list',
     name: 'updateRole',
-    // List of all Employees
-    choices: []
+    message: "Which employee's role do you wish to update?",
+    choices: allEmployees
     },
     {
     type: 'list',
     name: 'newRole',
-    message: 'select the employees new role',
+    message: "select the employee's new role",
     // list of all roles
-    choices: []
-
+    choices: allRoles
+    }
 ]
 
